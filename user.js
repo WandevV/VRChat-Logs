@@ -4,13 +4,16 @@ const { MessageEmbed, WebhookClient } = require('discord.js');
 require('dotenv').config();
 vrchat_();
 
+let runtimes = 0;
+
 // vrchat main func
 function vrchat_() {
     // friends check
         function Online() {
             axios.get("https://vrchat.com/api/1/auth/user", { headers: { Cookie: process.env.COOKIE } }).then(res => {
                 const mydata_ = res.data
-                console.log(`Logged in as: ${mydata_.displayName} 💗`);
+                runtimes = runtimes + 1
+                console.log(`runtimes: ${runtimes} 💻`);
                 axios.get("https://vrchat.com/api/1/auth/user/friends", { headers: { Cookie: process.env.COOKIE } }).then(res => {
                     const data = res.data;
                     data.forEach(friend => {

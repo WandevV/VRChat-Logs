@@ -79,4 +79,4 @@ function discord(user,obj,fields) {
     webhookClient.send({ embeds: [embed] });
 }
 
-console.log('server is starting ✅')
+console.log('server is running ✅')
